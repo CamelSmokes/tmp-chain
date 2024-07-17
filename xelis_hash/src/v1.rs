@@ -136,44 +136,4 @@ mod tests {
             (elapsed.as_millis() as f64) / ITERATIONS as f64
         );
     }
-
-    // #[test]
-    // fn test_zero_input() {
-    //     let mut input = [0u8; 200];
-    //     let expected_hash = [
-    //         0x0e, 0xbb, 0xbd, 0x8a, 0x31, 0xed, 0xad, 0xfe, 0x09, 0x8f, 0x2d, 0x77, 0x0d, 0x84,
-    //         0xb7, 0x19, 0x58, 0x86, 0x75, 0xab, 0x88, 0xa0, 0xa1, 0x70, 0x67, 0xd0, 0x0a, 0x8f,
-    //         0x36, 0x18, 0x22, 0x65,
-    //     ];
-
-    //     test_input(&mut input, expected_hash);
-    // }
-
-    // #[test]
-    // fn test_xelis_input() {
-    //     let mut input = [0u8; BYTES_ARRAY_INPUT];
-
-    //     let custom = b"xelis-hashing-algorithm";
-    //     input[0..custom.len()].copy_from_slice(custom);
-
-    //     let expected_hash = [
-    //         106, 106, 173, 8, 207, 59, 118, 108, 176, 196, 9, 124, 250, 195, 3, 61, 30, 146, 238,
-    //         182, 88, 83, 115, 81, 139, 56, 3, 28, 176, 86, 68, 21,
-    //     ];
-    //     test_input(&mut input, expected_hash);
-    // }
-
-    // #[test]
-    // fn test_scratch_pad() {
-    //     let mut scratch_pad = ScratchPad::default();
-    //     let mut input = AlignedInput::default();
-
-    //     let hash = xelis_hash(input.as_mut_slice().unwrap(), &mut scratch_pad).unwrap();
-    //     let expected_hash = [
-    //         0x0e, 0xbb, 0xbd, 0x8a, 0x31, 0xed, 0xad, 0xfe, 0x09, 0x8f, 0x2d, 0x77, 0x0d, 0x84,
-    //         0xb7, 0x19, 0x58, 0x86, 0x75, 0xab, 0x88, 0xa0, 0xa1, 0x70, 0x67, 0xd0, 0x0a, 0x8f,
-    //         0x36, 0x18, 0x22, 0x65,
-    //     ];
-    //     assert_eq!(hash, expected_hash);
-    // }
 }
