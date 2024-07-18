@@ -13,6 +13,6 @@ flamegraph.svg
 perf.data
 perf.data.old
 
-# ignore generated files by XELIS
+# ignore generated files by Vyridium
 difficulty_dataset.csv
 precomputed_tables_*.bin

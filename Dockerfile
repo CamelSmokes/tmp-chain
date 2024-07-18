@@ -25,7 +25,7 @@ COPY --from=planner /tmp/xelis-build/recipe.json recipe.json
 RUN cargo chef cook --release --recipe-path recipe.json --bin $app
 
 COPY Cargo.toml Cargo.lock ./
-COPY xelis_common ./xelis_common
+COPY vyridium_common ./vyridium_common
 COPY $app ./$app
 
 RUN XELIS_COMMIT_HASH=${commit_hash} cargo build --release --bin $app
