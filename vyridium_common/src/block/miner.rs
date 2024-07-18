@@ -13,7 +13,7 @@ use super::{BlockHeader, BLOCK_WORK_SIZE, EXTRA_NONCE_SIZE};
 
 pub enum WorkVariant {
     Uninitialized,
-    V1(Box<v1::ScratchPad>),
+    V1,
     // V2(Box<v2::ScratchPad>),
 }
 
@@ -21,7 +21,7 @@ impl WorkVariant {
     pub fn get_algorithm(&self) -> Option<Algorithm> {
         Some(match self {
             WorkVariant::Uninitialized => return None,
-            WorkVariant::V1(_) => Algorithm::V1,
+            WorkVariant::V1 => Algorithm::V1,
             // WorkVariant::V2(_) => Algorithm::V2,
         })
     }
@@ -125,8 +125,7 @@ impl<'a> Worker<'a> {
         if self.variant.get_algorithm() != Some(kind) {
             match kind {
                 Algorithm::V1 => {
-                    let scratch_pad = v1::ScratchPad::default();
-                    self.variant = WorkVariant::V1(Box::new(scratch_pad));
+                    self.variant = WorkVariant::V1;
                 } // Algorithm::V2 => {
                   //     let scratch_pad = v2::ScratchPad::default();
                   //     self.variant = WorkVariant::V2(Box::new(scratch_pad));
@@ -177,12 +176,12 @@ impl<'a> Worker<'a> {
 
         let hash = match &mut self.variant {
             WorkVariant::Uninitialized => return Err(WorkerError::Uninitialized),
-            WorkVariant::V1(scratch_pad) => {
+            WorkVariant::V1 => {
                 // Compute the POW hash
                 let mut input = v1::AlignedInput::default();
                 let slice = input.as_mut_slice()?;
                 slice[0..BLOCK_WORK_SIZE].copy_from_slice(work.as_ref());
-                v1::vyridium_hash(slice, scratch_pad).map(|bytes| Hash::new(bytes))?
+                v1::vyridium_hash(slice).map(|bytes| Hash::new(bytes))?
             } // WorkVariant::V2(scratch_pad) => {
               //     v2::vyridium_hash(work, scratch_pad).map(|bytes| Hash::new(bytes))?
               // }
@@ -378,7 +377,7 @@ mod tests {
         let mut input = v1::AlignedInput::default();
         let slice = input.as_mut_slice().unwrap();
         slice[0..BLOCK_WORK_SIZE].copy_from_slice(&work.to_bytes());
-        let expected_hash = v1::vyridium_hash(slice, &mut v1::ScratchPad::default())
+        let expected_hash = v1::vyridium_hash(slice)
             .map(|bytes| Hash::new(bytes))
             .unwrap();
         let block_hash = work.hash();
