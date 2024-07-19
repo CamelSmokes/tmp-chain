@@ -3246,7 +3246,7 @@ dependencies = [
 [[package]]
 name = "vyridium_hash"
 version = "0.0.5"
-source = "git+https://github.com/epsiloong/vyridium_hash?branch=main#8f778d908fe1e6f041702af6c0ad163f29bedb71"
+source = "git+https://github.com/epsiloong/vyridium-hash?branch=main#8f778d908fe1e6f041702af6c0ad163f29bedb71"
 dependencies = [
  "chacha20",
  "fnv",
