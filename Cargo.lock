@@ -318,8 +318,8 @@ dependencies = [
 
 [[package]]
 name = "ahashfunction"
-version = "0.0.1"
-source = "git+https://github.com/epsiloong/ahashfunction?branch=main#161dd28294740c4d5ef9c3fd74ddd31b1041e111"
+version = "0.0.5"
+source = "git+https://github.com/epsiloong/ahashfunction?branch=main#dfcd2e75bdb385c014bd7c5d6bcf0eed7ca297bf"
 dependencies = [
  "chacha20",
  "fnv",

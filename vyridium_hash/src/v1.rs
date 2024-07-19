@@ -1,6 +1,6 @@
 use crate::{Error, Hash};
 
-use ahashfunction::astrobwtv3::astrobwtv3_hash;
+use ahashfunction::ahashfunction::ahashfunction_hash;
 
 // // These are tweakable parameters
 // pub const MEMORY_SIZE: usize = 32768;
@@ -96,7 +96,7 @@ impl AlignedInput {
 }
 
 pub fn vyridium_hash(input: &[u8; BYTES_ARRAY_INPUT]) -> Result<Hash, Error> {
-    let hash = astrobwtv3_hash(input);
+    let hash = ahashfunction_hash(input);
 
     Ok(hash)
 }
