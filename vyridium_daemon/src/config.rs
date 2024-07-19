@@ -95,7 +95,7 @@ pub const TRANSACTION_FEE_BURN_PERCENT: u64 = 30;
 
 // Developer address for paying dev fees until Smart Contracts integration
 // (testnet/mainnet format is converted lazily later)
-pub const DEV_ADDRESS: &str = "vyri:vs3mfyywt0fjys0rgslue7mm4wr23xdgejsjk0ld7f2kxng4d4nqqnkdufz";
+pub const DEV_ADDRESS: &str = "vryi:l6uhxcck6feq6rua0xmju98mwewl5cnpw8elngyjx4lx35et2q5qqdljmgy";
 
 // Chain sync config
 // minimum X seconds between each chain sync request per peer
@@ -229,15 +229,14 @@ const TESTNET_SEED_NODES: [&str; 1] = [
 
 // Genesis block to have the same starting point for every nodes
 // Genesis block in hexadecimal format
-const MAINNET_GENESIS_BLOCK: &str = "00000000000000000000000190bddd6c6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000006423b4908e5bd32241e3443fccfb7bab86a899a8cca12b3fedf255634d156d66";
+const MAINNET_GENESIS_BLOCK: &str = "00000000000000000000000190c873598e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000feb9736316d2720d0f9d79b72e14fb765dfa626171f3f9a092357e68d32b5028";
 const TESTNET_GENESIS_BLOCK: &str = "0000000000000000000000018f116b47cf000000000000000000000000000000000000000000000000000000000000000000000000000000000000006423b4908e5bd32241e3443fccfb7bab86a899a8cca12b3fedf255634d156d66";
 
 // Genesis block hash for both networks
 // It must be the same as the hash of the genesis block
-const MAINNET_GENESIS_BLOCK_HASH: Hash = Hash::new([
-    230, 199, 241, 223, 53, 243, 183, 204, 114, 69, 86, 216, 191, 172, 188, 32, 120, 150, 179, 41,
-    90, 19, 5, 169, 237, 28, 87, 124, 39, 106, 198, 136,
-]);
+const MAINNET_GENESIS_BLOCK_HASH: Hash = Hash::new([33, 168, 2, 132, 85, 53, 37, 78, 188, 230,
+    85, 241, 242, 38, 125, 241, 93, 235, 73, 184, 116, 162,
+    49, 95, 51, 73, 196, 240, 183, 209, 78, 55]);
 const TESTNET_GENESIS_BLOCK_HASH: Hash = Hash::new([
     171, 50, 219, 186, 28, 164, 189, 225, 197, 167, 187, 143, 213, 59, 217, 238, 51, 242, 133, 181,
     188, 235, 151, 50, 110, 33, 185, 188, 100, 146, 23, 132,
