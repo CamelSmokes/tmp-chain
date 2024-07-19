@@ -1,6 +1,6 @@
 use crate::{Error, Hash};
 
-use ahashfunction::ahashfunction::ahashfunction_hash;
+use vyridium_hash::vyridium_hash::Vyridium_Hash;
 
 // // These are tweakable parameters
 // pub const MEMORY_SIZE: usize = 32768;
@@ -96,7 +96,7 @@ impl AlignedInput {
 }
 
 pub fn vyridium_hash(input: &[u8; BYTES_ARRAY_INPUT]) -> Result<Hash, Error> {
-    let hash = ahashfunction_hash(input);
+    let hash = Vyridium_Hash(input);
 
     Ok(hash)
 }
