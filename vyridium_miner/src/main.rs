@@ -244,7 +244,7 @@ async fn main() -> Result<()> {
     Ok(())
 }
 
-// this Tokio task will runs indefinitely until the user stops the miner himself.
+// this Tokio task will run indefinitely until the user stops the miner himself.
 // It maintains a http listener and sends stats on connection in json.
 async fn broadcast_stats_task(broadcast_address: String) -> Result<()> {
     info!("Starting broadcast task");
@@ -264,8 +264,7 @@ async fn broadcast_stats_task(broadcast_address: String) -> Result<()> {
             let length = contents.len();
 
             let response = format!("{status_line}{content_type}Content-Length: {length}\r\n\r\n{contents}");
-            tokio::io::AsyncWriteExt::write_all(&mut socket, response.as_bytes())
-                .await?;
+            tokio::io::AsyncWriteExt::write_all(&mut socket, response.as_bytes()).await?;
             socket.shutdown().await?;
         }
     }
@@ -302,7 +301,7 @@ fn benchmark(threads: usize, iterations: usize, algorithm: Algorithm) {
     }
 }
 
-// this Tokio task will runs indefinitely until the user stop himself the miner.
+// this Tokio task will run indefinitely until the user stops the miner himself.
 // It maintains a WebSocket connection with the daemon and notify all threads when it receive a new job.
 // Its also the task who have the job to send directly the new block found by one of the threads.
 // This allow mining threads to only focus on mining and receiving jobs through memory channels.
