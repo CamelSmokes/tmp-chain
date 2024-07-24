@@ -371,10 +371,7 @@ mod tests {
         };
         let work_hex = work.to_hex();
 
-        let mut input = v1::AlignedInput::default();
-        let slice = input.as_mut_slice().unwrap();
-        slice[0..BLOCK_WORK_SIZE].copy_from_slice(&work.to_bytes());
-        let expected_hash = v1::vyridium_hash(slice)
+        let expected_hash = v1::vyridium_hash(&work.to_bytes())
             .map(|bytes| Hash::new(bytes))
             .unwrap();
         let block_hash = work.hash();

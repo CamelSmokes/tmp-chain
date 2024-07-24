@@ -5,11 +5,11 @@ use super::{
     },
     extra_data::{derive_shared_key_from_opening, PlaintextData},
     verify::BlockchainVerificationState,
-    BurnPayload, Reference, Role, Transaction,
+    BurnPayload, Reference, Transaction,
 };
 use crate::{
     account::CiphertextCache,
-    api::{DataElement, DataValue},
+    api::DataElement,
     block::BlockVersion,
     config::{COIN_VALUE, VYRIDIUM_ASSET},
     crypto::{
@@ -17,7 +17,7 @@ use crate::{
         Address, Hash, KeyPair, PublicKey,
     },
     serializer::Serializer,
-    transaction::{TransactionType, TxVersion, MAX_TRANSFER_COUNT},
+    transaction::{TxVersion, MAX_TRANSFER_COUNT},
 };
 use async_trait::async_trait;
 use std::collections::HashMap;
