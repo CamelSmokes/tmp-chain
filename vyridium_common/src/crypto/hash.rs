@@ -62,12 +62,7 @@ pub fn pow_hash(work: &[u8], algorithm: Algorithm) -> Result<Hash, XelisHashErro
         Algorithm::V1 => {
             // let mut scratchpad = v1::ScratchPad::default();
 
-            // Make sure the input has good alignment
-            let mut input = v1::AlignedInput::default();
-            let slice = input.as_mut_slice()?;
-            slice[..work.len()].copy_from_slice(work);
-
-            v1::vyridium_hash(slice).map(|bytes| Hash::new(bytes))
+            v1::vyridium_hash(work).map(|bytes| Hash::new(bytes))
         } // Algorithm::V2 => {
           //     let mut scratchpad = v2::ScratchPad::default();
           //     v2::vyridium_hash(work, &mut scratchpad).map(|bytes| Hash::new(bytes))

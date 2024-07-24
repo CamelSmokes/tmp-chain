@@ -178,10 +178,7 @@ impl<'a> Worker<'a> {
             WorkVariant::Uninitialized => return Err(WorkerError::Uninitialized),
             WorkVariant::V1 => {
                 // Compute the POW hash
-                let mut input = v1::AlignedInput::default();
-                let slice = input.as_mut_slice()?;
-                slice[0..BLOCK_WORK_SIZE].copy_from_slice(work.as_ref());
-                v1::vyridium_hash(slice).map(|bytes| Hash::new(bytes))?
+                v1::vyridium_hash(work).map(|bytes| Hash::new(bytes))?
             } // WorkVariant::V2(scratch_pad) => {
               //     v2::vyridium_hash(work, scratch_pad).map(|bytes| Hash::new(bytes))?
               // }

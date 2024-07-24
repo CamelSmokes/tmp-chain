@@ -96,7 +96,7 @@ impl UnknownExtraDataFormat {
         &self,
         private_key: &PrivateKey,
         handle: &DecryptHandle,
-        role: Role,
+        _role: Role,
     ) -> Result<DataElement, CipherFormatError> {
         //  // Try the new version
         //  // If it has 64 + 2 bytes of overhead at least, it may be a V2
