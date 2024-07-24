@@ -6,7 +6,6 @@ members = [
     "vyridium_wallet",
     "vyridium_miner",
     "vyridium_daemon",
-    "vyridium_hash",
 ]
 
 # cargo run --profile release-with-lto

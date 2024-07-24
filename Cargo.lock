@@ -3207,7 +3207,7 @@ dependencies = [
  "tokio",
  "tokio-tungstenite-wasm",
  "tokio_with_wasm",
- "vyridium_hash 0.1.0",
+ "vyridium_hash",
  "win32console",
  "zeroize",
 ]
@@ -3245,29 +3245,13 @@ dependencies = [
 
 [[package]]
 name = "vyridium_hash"
-version = "0.0.6"
-source = "git+https://github.com/epsiloong/vyridium-hash?branch=main#85df30584e4ab69ee3dee1199b709c98b88d9109"
-dependencies = [
- "chacha20",
- "fnv",
- "hex",
- "rc4",
- "sha2 0.10.8",
- "siphasher",
- "suffix_array",
- "xxhash-rust",
-]
-
-[[package]]
-name = "vyridium_hash"
 version = "0.1.0"
+source = "git+https://github.com/epsiloong/vyridium-hash?branch=main#00016eb119e229d3f39e5f9f2b4928e8798a6057"
 dependencies = [
  "aes",
- "blake3",
  "bytemuck",
  "chacha20",
  "fnv",
- "rand 0.8.5",
  "rc4",
  "salsa20",
  "sha2 0.10.8",
@@ -3275,7 +3259,6 @@ dependencies = [
  "suffix_array",
  "thiserror",
  "tiny-keccak",
- "vyridium_hash 0.0.6",
  "xxhash-rust",
 ]
 
