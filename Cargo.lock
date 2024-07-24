@@ -3245,8 +3245,8 @@ dependencies = [
 
 [[package]]
 name = "vyridium_hash"
-version = "0.0.5"
-source = "git+https://github.com/epsiloong/vyridium-hash?branch=main#8f778d908fe1e6f041702af6c0ad163f29bedb71"
+version = "0.0.6"
+source = "git+https://github.com/epsiloong/vyridium-hash?branch=main#85df30584e4ab69ee3dee1199b709c98b88d9109"
 dependencies = [
  "chacha20",
  "fnv",
@@ -3275,7 +3275,7 @@ dependencies = [
  "suffix_array",
  "thiserror",
  "tiny-keccak",
- "vyridium_hash 0.0.5",
+ "vyridium_hash 0.0.6",
  "xxhash-rust",
 ]
 
