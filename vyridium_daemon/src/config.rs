@@ -87,7 +87,7 @@ pub const SIDE_BLOCK_REWARD_MIN_PERCENT: u64 = 5;
 // It is used to calculate based on the supply the block reward
 pub const EMISSION_SPEED_FACTOR: u64 = 20;
 // Predeflation stop supply
-pub const PREDEFLATION_STOP: u64 = 1000;
+pub const PREDEFLATION_STOP: u64 = 250000;
 // Predeflation block reward multiplier
 pub const PREDEFLATION_MULTIPLIER: u64 = 3;
 // 30% of the transaction fee is burned
