@@ -86,6 +86,10 @@ pub const SIDE_BLOCK_REWARD_MIN_PERCENT: u64 = 5;
 // Emission speed factor for the emission curve
 // It is used to calculate based on the supply the block reward
 pub const EMISSION_SPEED_FACTOR: u64 = 20;
+// Predeflation stop supply
+pub const PREDEFLATION_STOP: u64 = 1000;
+// Predeflation block reward multiplier
+pub const PREDEFLATION_MULTIPLIER: u64 = 3;
 // 30% of the transaction fee is burned
 // This is to reduce the supply over time
 // and also to prevent spamming the network with low fee transactions
@@ -95,7 +99,7 @@ pub const TRANSACTION_FEE_BURN_PERCENT: u64 = 30;
 
 // Developer address for paying dev fees until Smart Contracts integration
 // (testnet/mainnet format is converted lazily later)
-pub const DEV_ADDRESS: &str = "vryi:l6uhxcck6feq6rua0xmju98mwewl5cnpw8elngyjx4lx35et2q5qqdljmgy";
+pub const DEV_ADDRESS: &str = "vyri:kpv6atnpuvhqw69y526nkme3htp7n7rsctfytujsatgchh7zrvhqqqw3wx3";
 
 // Chain sync config
 // minimum X seconds between each chain sync request per peer
@@ -229,12 +233,12 @@ const TESTNET_SEED_NODES: [&str; 1] = [
 
 // Genesis block to have the same starting point for every nodes
 // Genesis block in hexadecimal format
-const MAINNET_GENESIS_BLOCK: &str = "00000000000000000000000190e4e80e7c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000feb9736316d2720d0f9d79b72e14fb765dfa626171f3f9a092357e68d32b5028";
+const MAINNET_GENESIS_BLOCK: &str = "00000000000000000000000191106d894800000000000000000000000000000000000000000000000000000000000000000000000000000000000000b059aeae61e32e0768a4a2b53b6f31bac3e9f870c2d245f250ead18bdfc21b2e";
 const TESTNET_GENESIS_BLOCK: &str = "0000000000000000000000018f116b47cf000000000000000000000000000000000000000000000000000000000000000000000000000000000000006423b4908e5bd32241e3443fccfb7bab86a899a8cca12b3fedf255634d156d66";
 
 // Genesis block hash for both networks
 // It must be the same as the hash of the genesis block
-const MAINNET_GENESIS_BLOCK_HASH: Hash = Hash::new([10, 205, 228, 165, 237, 13, 103, 226, 128, 22, 12, 8, 145, 61, 67, 53, 127, 86, 49, 14, 251, 5, 166, 167, 147, 70, 195, 75, 17, 26, 123, 3]);
+const MAINNET_GENESIS_BLOCK_HASH: Hash = Hash::new([215, 133, 45, 22, 46, 75, 35, 248, 213, 11, 132, 239, 154, 37, 202, 66, 133, 2, 255, 51, 49, 108, 249, 97, 217, 181, 131, 12, 58, 204, 225, 57]);
 const TESTNET_GENESIS_BLOCK_HASH: Hash = Hash::new([
     171, 50, 219, 186, 28, 164, 189, 225, 197, 167, 187, 143, 213, 59, 217, 238, 51, 242, 133, 181,
     188, 235, 151, 50, 110, 33, 185, 188, 100, 146, 23, 132,

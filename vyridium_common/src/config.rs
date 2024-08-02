@@ -22,9 +22,9 @@ pub const MAXIMUM_SUPPLY: u64 = 18_400_000 * COIN_VALUE;
 
 // Addresses format
 // mainnet prefix address
-pub const PREFIX_ADDRESS: &str = "vryi";
+pub const PREFIX_ADDRESS: &str = "vyri";
 // testnet prefix address
-pub const TESTNET_PREFIX_ADDRESS: &str = "vryt";
+pub const TESTNET_PREFIX_ADDRESS: &str = "vyrt";
 
 // Max transaction size in bytes
 pub const MAX_TRANSACTION_SIZE: usize = 1024 * 1024; // 1 MB

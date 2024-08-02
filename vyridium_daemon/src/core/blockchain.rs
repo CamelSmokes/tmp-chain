@@ -25,6 +25,7 @@ use vyridium_common::{
     },
     config::{
         COIN_DECIMALS,
+        COIN_VALUE,
         MAXIMUM_SUPPLY,
         MAX_TRANSACTION_SIZE,
         TIPS_LIMIT,
@@ -55,7 +56,7 @@ use crate::{
         get_genesis_block_hash, get_hex_genesis_block, get_minimum_difficulty,
         BLOCK_TIME_MILLIS, CHAIN_SYNC_RESPONSE_MAX_BLOCKS, CHAIN_SYNC_RESPONSE_MIN_BLOCKS,
         DEFAULT_CACHE_SIZE, DEFAULT_P2P_BIND_ADDRESS, DEFAULT_RPC_BIND_ADDRESS, DEV_FEES,
-        DEV_PUBLIC_KEY, EMISSION_SPEED_FACTOR, GENESIS_BLOCK_DIFFICULTY, MAX_BLOCK_SIZE,
+        DEV_PUBLIC_KEY, EMISSION_SPEED_FACTOR, PREDEFLATION_STOP, PREDEFLATION_MULTIPLIER, GENESIS_BLOCK_DIFFICULTY, MAX_BLOCK_SIZE,
         MILLIS_PER_SECOND, P2P_DEFAULT_MAX_PEERS, SIDE_BLOCK_REWARD_MAX_BLOCKS, PRUNE_SAFETY_LIMIT,
         SIDE_BLOCK_REWARD_PERCENT, SIDE_BLOCK_REWARD_MIN_PERCENT, STABLE_LIMIT, TIMESTAMP_IN_FUTURE_LIMIT,
         P2P_DEFAULT_CONCURRENCY_TASK_COUNT_LIMIT
@@ -2608,6 +2609,10 @@ pub fn get_block_reward(supply: u64) -> u64 {
     if supply >= MAXIMUM_SUPPLY {
         // Max supply reached, do we want to generate small fixed amount of coins? 
         return 0
+    }
+    if supply <= PREDEFLATION_STOP * COIN_VALUE {
+        let base_reward = (MAXIMUM_SUPPLY - supply) >> EMISSION_SPEED_FACTOR;
+        return PREDEFLATION_MULTIPLIER * base_reward * BLOCK_TIME_MILLIS / MILLIS_PER_SECOND / 180
     }
 
     let base_reward = (MAXIMUM_SUPPLY - supply) >> EMISSION_SPEED_FACTOR;
